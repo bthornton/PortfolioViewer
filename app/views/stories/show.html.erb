@@ -1,0 +1,49 @@
+<h1>Story</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Story:</b>
+  <%= @story.story %>
+</p>
+
+<p>
+  <b>Estimated Points:</b>
+  <%= @story.estimatedPoints %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @story.description %>
+</p>
+
+<h2>Tasks</h2>
+<dl>
+<% @story.tasks.each do |task| %>
+	<dt><%= task.title %> | <%=task.points %> points</dt>
+	<dd><%= task.description %></dd>
+<% end %>
+</dl>
+
+<h2>Add a task</h2>
+<%= form_for([@story, @story.tasks.build]) do |f| %>
+<div class="field">
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :points %><br />
+	<%= f.text_field :points %>
+</div>
+<div class="field">
+	<%= f.label :description %><br />
+	<%= f.text_field :description %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>

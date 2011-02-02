@@ -1,0 +1,49 @@
+<h1>Epic</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Userstory:</b>
+  <%= @epic.UserStory %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @epic.Owner %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @epic.Description %>
+</p>
+
+<h2>Stories</h2>
+<dl>
+<% @epic.stories.each do |story| %>
+	<dt><%= story.story %> :: <%= link_to 'Show', story %> | <%= link_to 'Edit', edit_story_path(story) %> | <%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></dt>
+	<dd><%= story.description %></dd>
+<% end %>
+</dl>
+
+<h2>Add a story</h2>
+<%= form_for([@epic, @epic.stories.build]) do |f| %>
+<div class="field">
+	<%= f.label :story %><br />
+	<%= f.text_field :story %>
+</div>
+<div class="field">
+	<%= f.label :estimatedPoints %><br />
+	<%= f.text_field :estimatedPoints %>
+</div>
+<div class="field">
+	<%= f.label :description %><br />
+	<%= f.text_field :description %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_epic_path(@epic) %> |
+<%= link_to 'Back', epics_path %>

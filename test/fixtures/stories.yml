@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  story: MyString
+  estimatedPoints: 1
+  description: MyString
+  epic: 
+
+two:
+  story: MyString
+  estimatedPoints: 1
+  description: MyString
+  epic: 

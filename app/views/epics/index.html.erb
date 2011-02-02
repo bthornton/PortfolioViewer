@@ -1,0 +1,27 @@
+<h1>Listing epics</h1>
+
+<table>
+  <tr>
+    <th>Userstory</th>
+    <th>Owner</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @epics.each do |epic| %>
+  <tr>
+    <td><%= epic.UserStory %></td>
+    <td><%= epic.Owner %></td>
+    <td><%= epic.Description %></td>
+    <td><%= link_to 'Show', epic %></td>
+    <td><%= link_to 'Edit', edit_epic_path(epic) %></td>
+    <td><%= link_to 'Destroy', epic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Epic', new_epic_path %>
